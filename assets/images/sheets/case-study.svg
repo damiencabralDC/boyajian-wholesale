@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 620" width="480" height="620" role="img" aria-label="Customer Success Story">
+<rect width="480" height="620" fill="#fff7f2"/>
+<rect x="10" y="10" width="460" height="600" fill="none" stroke="#e8e1d8" stroke-width="1.5"/>
+<rect x="0" y="0" width="480" height="8" fill="#b0976d"/>
+<text x="492" y="650" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="430" fill="#b0976d" fill-opacity="0.05" text-anchor="end">B</text>
+<rect x="392" y="40" width="44" height="44" rx="3" fill="#c41130"/>
+<text x="414" y="73" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="30" fill="#ffffff" text-anchor="middle" font-weight="700">B</text>
+<text x="44" y="64" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="23" fill="#121212" letter-spacing="6">BOYAJIAN</text>
+<text x="45" y="84" font-family="'Lato', Arial, Helvetica, sans-serif" font-size="8.5" fill="#b0976d" letter-spacing="3">EST. 1980 &#183; CANTON, MA</text>
+<line x1="44" y1="104" x2="436" y2="104" stroke="#b0976d" stroke-width="1"/>
+<text x="44" y="168" font-family="'Lato', Arial, Helvetica, sans-serif" font-size="11.5" font-weight="700" fill="#b0976d" letter-spacing="2.5">CUSTOMER SUCCESS STORY</text>
+<text x="44" y="206" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="35" fill="#121212">Customer</text>
+<text x="44" y="248" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="35" fill="#121212">Success Story</text>
+<text x="44" y="308" font-family="'Lato', Arial, Helvetica, sans-serif" font-size="13" fill="#6b6b6b">How an operator standardized</text>
+<text x="44" y="327" font-family="'Lato', Arial, Helvetica, sans-serif" font-size="13" fill="#6b6b6b">flavor &amp; cut prep labor.</text>
+<line x1="44" y1="556" x2="436" y2="556" stroke="#b0976d" stroke-width="1"/>
+<text x="44" y="582" font-family="'Lato', Arial, Helvetica, sans-serif" font-size="9.5" fill="#b0976d" letter-spacing="1.5">boyajianinc.com/wholesale</text>
+<text x="436" y="582" font-family="'Lato', Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" fill="#b0976d" letter-spacing="2" text-anchor="end">IN DEVELOPMENT</text>
+</svg>

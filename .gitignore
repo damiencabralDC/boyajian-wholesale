@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+_prev_*.png
+.fuse_hidden*
+.claude/
