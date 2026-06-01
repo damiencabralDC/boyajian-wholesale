@@ -18,37 +18,118 @@
     });
   }
 
-  // ---- Form intake tabs (CTA routing) ----
-  const formTabs = document.querySelectorAll('[data-form-tab]');
+  // ---- Progressive intake form ----
   const intakeForm = document.querySelector('[data-intake-form]');
-  formTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const intent = tab.dataset.formTab;
-      formTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      if (intakeForm) {
-        intakeForm.dataset.intent = intent;
-        // Update hidden intent field
-        const intentInput = intakeForm.querySelector('input[name="intent"]');
-        if (intentInput) intentInput.value = intent;
-        // Toggle conditional field groups
-        intakeForm.querySelectorAll('[data-intent-show]').forEach(el => {
-          const showFor = el.dataset.intentShow.split(',');
-          el.style.display = showFor.includes(intent) ? '' : 'none';
-        });
-        // Update submit label
-        const submitBtn = intakeForm.querySelector('[data-submit-label]');
-        if (submitBtn) {
-          const labels = {
-            sample: 'Request Sample Kit',
-            conversation: 'Start a Conversation',
-            custom: 'Submit Custom Inquiry'
-          };
-          submitBtn.textContent = labels[intent] || 'Submit';
-        }
-      }
+  const stepTwo   = document.querySelector('[data-step-id="2"]');
+  const ctxLabel  = document.querySelector('[data-step-context]');
+  const leadTitle = document.querySelector('[data-lead-title]');
+  const leadSub   = document.querySelector('[data-lead-sub]');
+  const breadcrumbCurrent = document.querySelector('[data-breadcrumb-current]');
+
+  const intentMeta = {
+    sample: {
+      submitLabel: 'Request Sample Kit',
+      stepContext: 'Sample kit request',
+      pageTitle:   'Tell us about your operation.',
+      pageSub:     "Two quick steps. We'll match the right products and ship a sample kit within 48 hours. First reply within one business day.",
+      breadcrumb:  'Request a Sample Kit'
+    },
+    conversation: {
+      submitLabel: 'Start a Conversation',
+      stepContext: 'Start a conversation',
+      pageTitle:   "Let's start a conversation.",
+      pageSub:     "Two quick steps. Tell us what you're working on and we'll respond within one business day.",
+      breadcrumb:  'Start a Conversation'
+    },
+    custom: {
+      submitLabel: 'Submit Custom Inquiry',
+      stepContext: 'Custom / private label',
+      pageTitle:   'Custom blends, co-packing, private label.',
+      pageSub:     "Two quick steps. Tell us about your project and a senior team member will respond within one business day.",
+      breadcrumb:  'Custom or Private Label'
+    }
+  };
+
+  function setIntent(intent) {
+    if (!intentMeta[intent]) intent = 'sample';
+
+    document.querySelectorAll('[data-form-tab]').forEach(el => {
+      el.classList.toggle('active', el.dataset.formTab === intent);
+      el.setAttribute('aria-pressed', el.dataset.formTab === intent ? 'true' : 'false');
+    });
+
+    if (!intakeForm) return;
+
+    intakeForm.dataset.intent = intent;
+    const intentInput = intakeForm.querySelector('input[name="intent"]');
+    if (intentInput) intentInput.value = intent;
+
+    intakeForm.querySelectorAll('[data-intent-show]').forEach(el => {
+      const showFor = el.dataset.intentShow.split(',');
+      el.style.display = showFor.includes(intent) ? '' : 'none';
+    });
+
+    const submitBtn = intakeForm.querySelector('[data-submit-label]');
+    if (submitBtn) submitBtn.textContent = intentMeta[intent].submitLabel;
+
+    if (ctxLabel) ctxLabel.textContent = intentMeta[intent].stepContext;
+
+    if (leadTitle) leadTitle.textContent = intentMeta[intent].pageTitle;
+    if (leadSub)   leadSub.textContent   = intentMeta[intent].pageSub;
+    if (breadcrumbCurrent) breadcrumbCurrent.textContent = intentMeta[intent].breadcrumb;
+    if (document.body.classList.contains('page--lead-gen')) {
+      document.title = intentMeta[intent].breadcrumb + ' | Boyajian Wholesale';
+    }
+  }
+
+  function revealStepTwo(scrollIntoView) {
+    if (!stepTwo) return;
+    if (!stepTwo.hasAttribute('hidden')) return;
+    stepTwo.removeAttribute('hidden');
+    if (scrollIntoView) {
+      setTimeout(() => {
+        stepTwo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 60);
+    }
+  }
+
+  document.querySelectorAll('[data-form-tab]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const intent = btn.dataset.formTab;
+      setIntent(intent);
+      revealStepTwo(true);
     });
   });
+
+  // ---- URL param prefill (lead-gen page) ----
+  const segmentSelect = document.querySelector('[data-segment-select]');
+  const params = new URLSearchParams(window.location.search);
+
+  const industryParam = (params.get('industry') || '').toLowerCase();
+  const industryMap = {
+    pizza:         'pizza',
+    foodservice:   'foodservice',
+    bakery:        'bakery',
+    bakeries:      'bakery',
+    manufacturer:  'food-mfg',
+    manufacturers: 'food-mfg',
+    'food-mfg':    'food-mfg',
+    snack:         'snack-mfg',
+    snacks:        'snack-mfg',
+    'snack-mfg':   'snack-mfg',
+    retail:        'specialty-retail',
+    specialty:     'specialty-retail',
+    other:         'other'
+  };
+  if (segmentSelect && industryParam && industryMap[industryParam]) {
+    segmentSelect.value = industryMap[industryParam];
+  }
+
+  const contactParam = (params.get('contact') || '').toLowerCase();
+  if (contactParam && intentMeta[contactParam]) {
+    setIntent(contactParam);
+    revealStepTwo(false);
+  }
 
   // ---- FAQ accordions ----
   document.querySelectorAll('.faq-question').forEach(btn => {
@@ -71,17 +152,12 @@
     });
   });
 
-  // ---- Video lightbox: handled by an inline <script> next to the lightbox markup
-  // in index.html — see below the [data-video-lightbox] element. Kept inline so it
-  // works even if this main.js file fails to load or is cached.
-
-  // ---- Form submission stub (prototype — real WP form via Gravity/CF7) ----
+  // ---- Form submission stub (prototype) ----
   if (intakeForm) {
     intakeForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const formData = new FormData(intakeForm);
       const intent = formData.get('intent') || 'sample';
-      // In production: this is replaced with the WP form handler (Gravity Forms / CF7)
       alert(
         'Prototype: Form submitted with intent "' + intent + '".\n\n' +
         'In WordPress, this will route to Gravity Forms / Contact Form 7\n' +

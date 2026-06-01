@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-<a href="#intake" class="mobile-cta-bar">Request Sample Kit →</a>
+<a href="request-sample.html?industry=pizza" class="mobile-cta-bar">Request Sample Kit →</a>
 
 <!-- ============================================================
      SITE HEADER  (WP: replace with theme header.php + wp_nav_menu)
@@ -64,7 +64,7 @@
         <span class="site-header__phone-num">781-828-9966</span>
       </a>
     </div>
-  <a href="#intake" class="site-header__cta">Request Sample</a>
+  <a href="request-sample.html?industry=pizza" class="site-header__cta">Request Sample</a>
   </div>
 </header>
 
@@ -97,7 +97,7 @@
         consistent across every shift, every location, every batch.
       </p>
       <div class="btn-group">
-        <a href="#intake" class="btn btn--primary">Request Sample Kit</a>
+        <a href="request-sample.html?industry=pizza" class="btn btn--primary">Request Sample Kit</a>
         <a href="#applications" class="btn btn--outline-light">See Applications</a>
       </div>
     </div>
@@ -281,7 +281,7 @@
           <li><span>Italian Dipping Oil 5oz</span><strong>1</strong></li>
           <li><span>Application sheet &amp; dosing guide</span><strong>·</strong></li>
         </ul>
-        <a href="#intake" class="btn btn--primary">Request Sample Kit</a>
+        <a href="request-sample.html?industry=pizza" class="btn btn--primary">Request Sample Kit</a>
         <p style="font-size:0.8rem; color:var(--b-gray); margin-top:1rem;">
           Ships free via UPS Ground within 48 hours. Day-3, day-7, day-14 follow-up to make sure it lands.
         </p>
@@ -292,7 +292,7 @@
 </section>
 
 <!-- Inline CTA strip — interest spike to action distance = zero -->
-<div class="inline-cta"><span>Ready to test in your kitchen?</span><a href="#intake">Request the Sample Kit</a></div>
+<div class="inline-cta"><span>Ready to test in your kitchen?</span><a href="request-sample.html?industry=pizza">Request the Sample Kit</a></div>
 
 
 <!-- FLAVOR DENSITY -->
@@ -393,127 +393,22 @@
   </div>
 </section>
 
-<!-- INTAKE FORM -->
-<section class="section section--paper form-section" id="intake">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Start the conversation</span>
-      <h2 class="display-lg">Get the pizza kit</h2>
-      <p class="lead text-muted">
-        Tell us the basics: industry, locations, what you're testing. We'll match the kit,
-        ship within 48 hours, and follow up at day 3, 7, and 14. No EIN, no A/P contact, no commitment.
-      </p>
+<!-- ============================================================
+     LEAD-GEN CTA  (replaces inline form — links to dedicated page)
+     ============================================================ -->
+<section class="lead-gen-cta" id="intake">
+  <div class="lead-gen-cta__inner">
+    <span class="eyebrow">Start the Conversation</span>
+    <h2>Get the pizza kit.</h2>
+    <p>Pizza-ready oils sized for your operation. Tell us the basics on the next page and we'll match the kit and ship within 48 hours.</p>
+    <div class="lead-gen-cta__btns">
+      <a href="request-sample.html?industry=pizza" class="btn btn--primary btn--lg">Request a Sample Kit</a>
+      <a href="request-sample.html?industry=pizza&amp;contact=conversation" class="btn btn--outline">Start a Conversation</a>
     </div>
-
-    <div class="form-card">
-      <span class="form-tabs-label">What would you like to do?</span>
-      <div class="form-tabs">
-        <button type="button" class="form-tab active" data-form-tab="sample">Request a Sample Kit</button>
-        <button type="button" class="form-tab" data-form-tab="conversation">Start a Conversation</button>
-        <button type="button" class="form-tab" data-form-tab="custom">Custom / Private Label</button>
-      </div>
-
-      <form data-intake-form data-intent="sample" novalidate>
-        <input type="hidden" name="intent" value="sample" />
-        <input type="hidden" name="segment_prefill" value="pizza" />
-
-        <div class="form-row">
-          <div class="form-field">
-            <label>First Name <span class="req">*</span></label>
-            <input type="text" name="first_name" required />
-          </div>
-          <div class="form-field">
-            <label>Last Name <span class="req">*</span></label>
-            <input type="text" name="last_name" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label>Company <span class="req">*</span></label>
-            <input type="text" name="company" required />
-          </div>
-          <div class="form-field">
-            <label>Work Email <span class="req">*</span></label>
-            <input type="email" name="email" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label>Title</label>
-            <input type="text" name="title" placeholder="Director of Operations, Culinary Director, etc." />
-          </div>
-          <div class="form-field">
-            <label>Phone <span class="req">*</span></label>
-            <input type="tel" name="phone" required />
-          </div>
-        </div>
-
-        <div class="form-row form-row--full">
-          <div class="form-field">
-            <label>Number of locations</label>
-            <select name="locations">
-              <option value="">Select...</option>
-              <option>1 location</option>
-              <option>2–5 locations</option>
-              <option>6–20 locations</option>
-              <option>21–50 locations</option>
-              <option>50+ locations</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Conditional: Conversation -->
-        <div data-intent-show="conversation" style="display:none;">
-          <div class="form-row form-row--full">
-            <div class="form-field">
-              <label>What would you like to discuss?</label>
-              <textarea name="topic" rows="3" placeholder="A new product line, an application question, or just exploring ingredient partners..."></textarea>
-            </div>
-          </div>
-        </div>
-
-        <!-- Conditional: Custom / Private Label -->
-        <div data-intent-show="custom" style="display:none;">
-          <div class="form-row">
-            <div class="form-field">
-              <label>Type of inquiry</label>
-              <select name="custom_type">
-                <option value="private-label">Private label</option>
-                <option value="custom-blend">Custom blend / formulation</option>
-                <option value="co-pack">Co-packing</option>
-                <option value="not-sure">Not sure yet</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label>Estimated annual volume</label>
-              <select name="volume">
-                <option value="">Select...</option>
-                <option>Under 5,000 units / yr</option>
-                <option>5,000 – 25,000 units / yr</option>
-                <option>25,000 – 100,000 units / yr</option>
-                <option>100,000+ units / yr</option>
-                <option>Just exploring</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row form-row--full">
-            <div class="form-field">
-              <label>Project brief</label>
-              <textarea name="brief" rows="4" placeholder="Tell us about your product, target market, and what you're trying to accomplish."></textarea>
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn--primary form-submit" data-submit-label>Request Sample Kit</button>
-
-        <p class="form-note">
-          <strong>What happens next:</strong>
-          We ship within 48 hours. Your industry lead follows up on day 3 (confirm receipt),
-          day 7 (taste-test debrief), and day 14 (next step). First reply within one business day.
-        </p>
-      </form>
+    <div class="lead-gen-cta__meta">
+      <span><strong>48 hr</strong> sample ship</span>
+      <span><strong>1 business day</strong> first reply</span>
+      <span><strong>No EIN required</strong> to start</span>
     </div>
   </div>
 </section>

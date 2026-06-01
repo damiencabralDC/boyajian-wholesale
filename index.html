@@ -306,17 +306,20 @@
 </section>
 
 <!-- ============================================================
-     MANUFACTURING CAPABILITIES (dark section)
+     PRIVATE LABEL · CO-PACKING · CUSTOM BLENDS
+     Canonical hub for private-label / manufacturing inquiries.
      ============================================================ -->
 <section class="section" id="capabilities">
+  <a id="private-label" style="display:block; position:relative; top:-140px;" aria-hidden="true"></a>
   <div class="container">
     <div class="section-header">
-      <span class="eyebrow">Manufacturing &amp; Capabilities</span>
-      <h2 class="display-lg">30,000 sq ft in Canton, MA, built for production and sized for partnership.</h2>
+      <span class="eyebrow">Private Label · Custom Blends · Co-Packing</span>
+      <h2 class="display-lg">Behind a lot of brands you'd recognize, that's us.</h2>
       <p class="lead text-muted">
-        Most of our customers find us through referral. The work is technical:
-        proprietary acidified garlic infusion, multiple oil bases, full QA documentation,
-        run sizes from pilot to bulk.
+        Many of the specialty oils on grocery shelves and restaurant menus across the country
+        are made in our Canton facility under our partners' labels. If you're building a product line,
+        reformulating an existing one, or scaling a run, we'd like to be in the conversation.
+        45+ years of formulation, pilot-to-bulk run sizes, real ingredients, full documentation.
       </p>
     </div>
 
@@ -364,8 +367,80 @@
       </div>
     </div>
 
+    <!-- HOW IT WORKS — private label process -->
+    <div class="pl-subsection">
+      <h3 class="pl-subsection__title">How private label works at Boyajian</h3>
+      <p class="pl-subsection__sub">Five stages from first call to first shipment. Most partners go from agreement to product on shelf in 8 to 14 weeks.</p>
+
+      <ol class="process-grid">
+        <li class="process-step">
+          <span class="process-step__num">1</span>
+          <h4 class="process-step__title">Discovery</h4>
+          <p>A 30-minute call. We learn your product, target customer, label requirements, and what success looks like. No NDA needed for first conversations; we'll sign one when we move into recipe specifics.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-step__num">2</span>
+          <h4 class="process-step__title">Formulation</h4>
+          <p>Our R&amp;D team builds samples to your spec. Real ingredients only: fresh garlic, real citrus peel, whole herbs. Most projects iterate two or three rounds before the recipe is locked.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-step__num">3</span>
+          <h4 class="process-step__title">Pilot run</h4>
+          <p>A small production run to validate the recipe at scale, finalize fill weights and labels, and pull a COA. Most pilots fall in the 200 to 2,000 unit range.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-step__num">4</span>
+          <h4 class="process-step__title">Production</h4>
+          <p>A standing schedule with rolling forecast. We hold to your spec across every run, with full lot traceability — from the garlic supplier we've used since 1988 onward.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-step__num">5</span>
+          <h4 class="process-step__title">Documentation &amp; ship</h4>
+          <p>Every shipment leaves Canton with the COA, allergen statement, kosher certification, and nutritional panel your buyers expect.</p>
+        </li>
+      </ol>
+    </div>
+
+    <!-- PRIVATE LABEL FAQs -->
+    <div class="pl-subsection">
+      <h3 class="pl-subsection__title">Common questions about private label</h3>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">What's the minimum order quantity?</button>
+          <div class="faq-answer">
+            <p>There's no universal MOQ. It depends on bottle size, label complexity, and whether the recipe is one we already make. Most first runs land between 1,000 and 5,000 units. We've gone smaller for pilots and much larger for established partners.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Who designs and supplies the labels?</button>
+          <div class="faq-answer">
+            <p>You do. We print and apply whatever artwork you provide. We can recommend bottle suppliers, cap suppliers, and label printers we've worked with, but the brand is yours all the way through.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What's the lead time from agreement to first shipment?</button>
+          <div class="faq-answer">
+            <p>For a recipe we already make in a bottle size we already run: 6 to 8 weeks. For a new formulation or new packaging: 10 to 14 weeks, including formulation rounds and the pilot run.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What allergens does the facility handle?</button>
+          <div class="faq-answer">
+            <p>Our Canton facility runs olive, canola, sunflower, garlic, citrus, herbs, and chili. We're not a peanut, tree nut, dairy, soy, gluten, or shellfish facility. Tell us what allergen statement your buyer needs and we'll confirm fit on the discovery call.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What's the difference between private label and co-packing here?</button>
+          <div class="faq-answer">
+            <p>Co-packing means you bring the recipe and we manufacture and bottle. Private label means we build the recipe around your spec, then manufacture and bottle. Many partners start with one and move to the other.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div style="text-align:center; margin-top:3rem;">
-      <a href="#intake" class="btn btn--primary">Discuss Your Project</a>
+      <a href="request-sample.html?contact=custom" class="btn btn--primary">Submit a Custom Inquiry</a>
     </div>
   </div>
 </section>
@@ -477,16 +552,28 @@
     </div>
 
     <div class="form-card">
-      <!-- Three-way intent router -->
-      <span class="form-tabs-label">What would you like to do?</span>
-      <div class="form-tabs">
-        <button type="button" class="form-tab active" data-form-tab="sample">Request Sample Kit</button>
-        <button type="button" class="form-tab" data-form-tab="conversation">Start a Conversation</button>
-        <button type="button" class="form-tab" data-form-tab="custom">Custom / Private Label</button>
+      <!-- Inquiry type selector (radio-style cards) — sits at top of always-visible form -->
+      <div class="form-intent" data-step-id="1">
+        <span class="form-intent__label">What can we help with?</span>
+        <div class="form-options" role="radiogroup" aria-label="What can we help with?">
+          <button type="button" class="form-option active" data-form-tab="sample" role="radio" aria-checked="true">
+            <span class="form-option__title">Request a sample kit</span>
+            <span class="form-option__hint">Try the oils in your kitchen, free.</span>
+          </button>
+          <button type="button" class="form-option" data-form-tab="conversation" role="radio" aria-checked="false">
+            <span class="form-option__title">Start a conversation</span>
+            <span class="form-option__hint">Ask a question, explore the fit.</span>
+          </button>
+          <button type="button" class="form-option" data-form-tab="custom" role="radio" aria-checked="false">
+            <span class="form-option__title">Custom or private label</span>
+            <span class="form-option__hint">Co-packing, custom blends, your label.</span>
+          </button>
+        </div>
       </div>
 
       <form data-intake-form data-intent="sample" novalidate>
         <input type="hidden" name="intent" value="sample" />
+        <input type="hidden" name="source_page" value="hub" />
 
         <div class="form-row">
           <div class="form-field">
@@ -523,8 +610,8 @@
 
         <div class="form-row form-row--full">
           <div class="form-field">
-            <label>Industry</label>
-            <select name="segment">
+            <label>Industry <span class="req">*</span></label>
+            <select name="segment" data-segment-select required>
               <option value="">Select industry...</option>
               <option value="pizza">Pizza chain / restaurant group</option>
               <option value="foodservice">Other foodservice operator</option>
@@ -680,7 +767,7 @@
         <h4>Company</h4>
         <ul>
           <li><a href="https://boyajianinc.com/story/">Our Story</a></li>
-          <li><a href="https://boya          <li><a href="https://boyajianinc.com/process/">Our Process</a></li>
+          <li><a href="https://boyajianinc.com/process/">Our Process</a></li>
           <li><a href="https://boyajianinc.com/contact/">Contact</a></li>
           <li><a href="https://boyajianinc.com/faqs/">FAQs</a></li>
         </ul>

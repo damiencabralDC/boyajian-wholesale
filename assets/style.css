@@ -438,8 +438,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: var(--b-white);
   border-bottom: 1px solid var(--b-border);
   position: sticky;
-  top: 73px;
+  top: 92px;
   z-index: 90;
+}
+@media (max-width: 900px) {
+  .subnav { top: 72px; }
+}
+@media (max-width: 600px) {
+  .subnav { top: 64px; }
 }
 
 .subnav__inner {
@@ -2360,3 +2366,350 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: background 0.25s var(--ease);
 }
 .inline-cta a:hover { background: var(--b-cream); color: var(--b-red); }
+
+
+/* ==========================================================================
+   PROGRESSIVE FORM — Step 1 (option cards) + Step 2 (form body, hidden until pick)
+   Used on index.html (embedded) and request-sample.html (dedicated landing).
+   ========================================================================== */
+.form-step { }
+.form-step + .form-step { margin-top: 2.25rem; padding-top: 2rem; border-top: 1px solid var(--b-border); }
+
+.form-step__num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--b-red);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.form-step__divider { color: var(--b-border); margin: 0 0.15rem; }
+
+.form-step__label {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--b-charcoal);
+  margin-bottom: 1.25rem;
+  display: block;
+  line-height: 1.25;
+}
+
+/* Step 1 — three option cards */
+.form-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+.form-option {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+  padding: 1.25rem 1.15rem;
+  background: var(--b-white);
+  border: 1.5px solid var(--b-border);
+  font-family: var(--font-sans);
+  color: var(--b-charcoal);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  position: relative;
+}
+.form-option__title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+.form-option__hint {
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--b-gray);
+  line-height: 1.4;
+}
+.form-option:hover {
+  border-color: var(--b-black);
+  background: var(--b-paper);
+}
+.form-option:hover .form-option__title { color: var(--b-black); }
+
+.form-option.active {
+  background: var(--b-red);
+  border-color: var(--b-red);
+  color: var(--b-white);
+}
+.form-option.active .form-option__title,
+.form-option.active .form-option__hint { color: var(--b-white); }
+.form-option.active::after {
+  content: "\2713";
+  position: absolute;
+  top: 0.65rem;
+  right: 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--b-white);
+}
+.form-option.active:hover {
+  background: var(--b-red-dark);
+  border-color: var(--b-red-dark);
+}
+
+@media (max-width: 720px) {
+  .form-options { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   LEAD-GEN PAGE  (request-sample.html)
+   ========================================================================== */
+.lg-container--narrow { max-width: 880px; }
+
+.lg-breadcrumb {
+  background: var(--b-white);
+  border-bottom: 1px solid var(--b-border);
+  position: sticky;
+  top: 92px;
+  z-index: 90;
+}
+@media (max-width: 900px) {
+  .lg-breadcrumb { top: 72px; }
+}
+@media (max-width: 600px) {
+  .lg-breadcrumb { top: 64px; }
+}
+.lg-breadcrumb__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--b-gray);
+}
+.lg-breadcrumb a {
+  color: var(--b-charcoal);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: color 0.25s var(--ease);
+}
+.lg-breadcrumb a:hover { color: var(--b-red); border-bottom-color: var(--b-red); }
+.lg-breadcrumb__sep { color: var(--b-border); }
+.lg-breadcrumb__current { color: var(--b-red); }
+
+.lead-gen .lead-gen__head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+.lead-gen .lead-gen__head .eyebrow { color: var(--b-red); }
+.lead-gen .lead-gen__head .display-lg { margin-bottom: 0.9rem; }
+
+.form-card--lead-gen { padding: 2.75rem; }
+@media (max-width: 720px) {
+  .form-card--lead-gen { padding: 1.75rem 1.25rem; }
+}
+
+.lead-gen__trust {
+  list-style: none;
+  padding: 0;
+  margin: 2.75rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  border-top: 1px solid var(--b-border);
+  padding-top: 2.5rem;
+}
+.lead-gen__trust li {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.lead-gen__trust strong {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--b-charcoal);
+  letter-spacing: -0.01em;
+}
+.lead-gen__trust span {
+  font-size: 0.8rem;
+  color: var(--b-gray);
+  line-height: 1.4;
+}
+@media (max-width: 720px) {
+  .lead-gen__trust { grid-template-columns: 1fr 1fr; }
+}
+
+/* ==========================================================================
+   SUB-PAGE LEAD-GEN CTA BLOCK
+   ========================================================================== */
+.lead-gen-cta {
+  background: var(--b-cream);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top: 1px solid var(--b-border);
+  border-bottom: 1px solid var(--b-border);
+}
+.lead-gen-cta__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.lead-gen-cta .eyebrow { color: var(--b-red); }
+.lead-gen-cta h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 3.5vw, 2.65rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0.65rem 0 1rem;
+  color: var(--b-charcoal);
+}
+.lead-gen-cta p {
+  color: var(--b-gray);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin: 0 auto 1.75rem;
+  max-width: 580px;
+}
+.lead-gen-cta__btns {
+  display: inline-flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.lead-gen-cta__meta {
+  margin-top: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--b-gray);
+  letter-spacing: 0.04em;
+}
+.lead-gen-cta__meta strong { color: var(--b-charcoal); }
+.lead-gen-cta__meta span + span::before {
+  content: "\B7";
+  margin: 0 0.6rem;
+  color: var(--b-border);
+}
+
+
+/* ==========================================================================
+   FORM INTENT PICKER — radio-style cards above always-visible form
+   ========================================================================== */
+.form-intent {
+  margin-bottom: 2.25rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--b-border);
+}
+.form-intent__label {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--b-charcoal);
+  margin-bottom: 1rem;
+  display: block;
+  line-height: 1.25;
+}
+
+
+/* ==========================================================================
+   PRIVATE LABEL HUB — process steps, partner chips, sub-section headers
+   ========================================================================== */
+.pl-subsection {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--b-border);
+}
+.pl-subsection__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.6vw, 1.95rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--b-charcoal);
+  margin-bottom: 0.65rem;
+}
+.pl-subsection__sub {
+  color: var(--b-gray);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  margin-bottom: 2.25rem;
+  max-width: 720px;
+}
+
+/* Process steps — numbered cards, 5 across on desktop, stacked on mobile */
+.process-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+.process-step {
+  background: var(--b-paper);
+  border: 1px solid var(--b-border);
+  padding: 1.5rem 1.35rem;
+  position: relative;
+}
+.process-step__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--b-red);
+  color: var(--b-white);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 50%;
+  margin-bottom: 0.85rem;
+}
+.process-step__title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--b-charcoal);
+  margin: 0 0 0.45rem;
+  line-height: 1.25;
+}
+.process-step p {
+  font-size: 0.88rem;
+  color: var(--b-gray);
+  line-height: 1.55;
+  margin: 0;
+}
+@media (max-width: 1000px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .process-grid { grid-template-columns: 1fr; }
+}
+
+/* Partner chips */
+.partner-chips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.partner-chips li {
+  background: var(--b-cream);
+  border: 1px solid var(--b-border);
+  padding: 0.55rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--b-charcoal);
+  letter-spacing: 0.01em;
+}
