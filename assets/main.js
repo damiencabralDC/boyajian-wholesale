@@ -117,8 +117,9 @@
     snack:         'snack-mfg',
     snacks:        'snack-mfg',
     'snack-mfg':   'snack-mfg',
-    retail:        'specialty-retail',
-    specialty:     'specialty-retail',
+    retail:           'specialty-retail',
+    specialty:        'specialty-retail',
+    'specialty-retail':'specialty-retail',
     other:         'other'
   };
   if (segmentSelect && industryParam && industryMap[industryParam]) {
